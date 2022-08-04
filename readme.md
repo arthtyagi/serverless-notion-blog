@@ -11,6 +11,8 @@ Built using React on top of Vite cause CRA sucks.
 
 I have been using Notion for a while now to host my blog, however, I don't like the design of the blog. I wanted to make it more "me" (read: broken but sexy).
 
+I'm not big on open-source anymore but this still seemed cool to make open-source since it's just a stupid blog.
+
 ## How
 
 Okay, so, to use Notion API and render content, you need to have a server. Since this is just a front-end, I chose to deploy my own serverless function on Cloudflare workers and consume it instead.
