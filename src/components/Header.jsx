@@ -20,5 +20,4 @@ export default function Header({curroute}){
             }
         </div>
     )
-    // add spacing in the nav bar
 }

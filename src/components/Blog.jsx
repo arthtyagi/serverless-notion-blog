@@ -16,9 +16,6 @@ function genImgURL(item){
     url = ((url.replace(/:/g, "%3A")).replace(/\//g, "%2F"));
     const secureTrail = "?table=block&id=" + blockId + "&spaceId=" + spaceId;
     url = "https://blog.arthtyagi.xyz/image/" + url + secureTrail;
-    // download image to local storage
-    const img = new Image();
-    img.src = url;
     return url;
 }
 
@@ -116,7 +113,6 @@ function BlogContent({slug}){
 }
 
 export default function Blog() {
-    // display blog content inside a card container
     const {slug} = useParams();
     return (
         <>

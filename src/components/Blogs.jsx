@@ -27,7 +27,7 @@ function genURL(item){
 
 function BlogList(){
     const [notionContent, setNotionContent] = useState([]);
-    // replace with notionContent with useReducer instead of useState
+    // replace notionContent with useReducer instead of useState
     const [isLoading, setIsLoading] = useState(true);
     const isnotionContentEmpty = notionContent.length === 0;
     const notion = [];
