@@ -4,7 +4,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const NOTION_URL = import.meta.env.VITE_WORKER_URL;
+const NOTION_BASE = Import.meta.env.VITE_BASE_URL;
 // VITE_WORKER_URL should be like: <workerurl>/v1/page/
+// VITE_BASE_URL should be your public Notion url
 
 function getData(slug) {
     const url =  `${NOTION_URL}${slug}`;
@@ -18,7 +20,7 @@ function genImgURL(item){
     const spaceId = item["value"]["space_id"];
     url = ((url.replace(/:/g, "%3A")).replace(/\//g, "%2F"));
     const secureTrail = "?table=block&id=" + blockId + "&spaceId=" + spaceId;
-    url = "https://blog.arthtyagi.xyz/image/" + url + secureTrail;
+    url = `${NOTION_BASE}image/${url}${secureTrail}`;
     return url;
 }
 
