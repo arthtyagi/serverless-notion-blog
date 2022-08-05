@@ -3,8 +3,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const NOTION_URL = import.meta.env.VITE_WORKER_URL;
+// VITE_WORKER_URL should be like: <workerurl>/v1/page/
+
 function getData(slug) {
-    const url = "https://notion-blog-production.arthtyagi7.workers.dev/v1/page/" + slug;
+    const url =  `${NOTION_URL}${slug}`;
     return axios.get(url).then(res=>res.data);
    }
 
