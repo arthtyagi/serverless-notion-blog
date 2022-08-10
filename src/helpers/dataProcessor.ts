@@ -1,7 +1,7 @@
 const NOTION_BASE = import.meta.env.VITE_NOTION_BASE;
 // VITE_BASE_URL should be your public Notion url
 
-export function genURL(item) {
+export function genURL(item: unknown) {
   let title = item.value.properties.title[0][0];
   // strip ;,:,/""'? from title, replace with -
   title = title.replace(/[;,:,/"'?]/g, '-');
