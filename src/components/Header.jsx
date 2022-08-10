@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export default function Header({curroute}){
     let head = "ARTH";

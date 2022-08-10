@@ -5,6 +5,9 @@ Powering my blog at [https://arthtyagi.xyz/blog](https://arthtyagi.xyz/blog). Th
 Built using React on top of Vite cause CRA sucks.
 
 ![image](https://user-images.githubusercontent.com/41021374/182890950-1cf81d5c-0790-4d9a-8096-56b5e33a9bb2.png)
+
+--
+
 ![image2](https://user-images.githubusercontent.com/41021374/182893665-aa7ad51b-6816-4e47-99ac-fd31080a647c.png)
 
 ## Why
@@ -27,12 +30,12 @@ From Notion's standpoint though, this is pretty neat. The way they have everythi
 
 ## So Far
 
+- [X] Performant. Does not re-fetch blogs unless there's a change.
 - [X] Rendering list of all my blogs.
 - [X] Rendering titles
 - [X] Rendering content (essntially, title arrays w text property).
 - [X] Rendering images (sort of. dimensions are icky).
 - [X] Rendering Lists.
-- [ ] Performant. Does not re-fetch blogs unless there's a change.
 
 ### To-do
 
