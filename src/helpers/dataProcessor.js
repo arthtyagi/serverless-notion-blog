@@ -4,7 +4,7 @@ const NOTION_BASE = import.meta.env.VITE_NOTION_BASE;
 export function genURL(item) {
   let title = item.value.properties.title[0][0];
   // strip ;,:,/""'? from title, replace with -
-  title = title.replace(/[;,:,\/"'?]/g, '-');
+  title = title.replace(/[;,:,/"'?]/g, '-');
   let slugId = item.value.id;
   // remove hyphens from slugId
   slugId = slugId.replace(/-/g, '');
