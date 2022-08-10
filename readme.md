@@ -32,6 +32,7 @@ From Notion's standpoint though, this is pretty neat. The way they have everythi
 - [X] Rendering content (essntially, title arrays w text property).
 - [X] Rendering images (sort of. dimensions are icky).
 - [X] Rendering Lists.
+- [ ] Performant. Does not re-fetch blogs unless there's a change.
 
 ### To-do
 
