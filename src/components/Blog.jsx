@@ -38,7 +38,7 @@ function BlogContent({ slug }) {
         )
           : null}
         {item.type === 'text' ? <p>{item.content}</p> : null}
-        {item.type === 'image' ? <img src={item.content} alt="notion-image" /> : null}
+        {item.type === 'image' ? <img src={item.content} alt="notion" /> : null}
         {item.type === 'bulleted-list' ? <li>{item.content}</li> : null}
       </div>
     ))

@@ -17,12 +17,12 @@ function genImgURL(item) {
   const spaceId = item.value.space_id;
   url = ((url.replace(/:/g, '%3A')).replace(/\//g, '%2F'));
   const secureTrail = `?table=block&id=${blockId}&spaceId=${spaceId}`;
-  url = `${NOTION_BASE}image/${url}${secureTrail}`;
+  url = `${NOTION_BASE}/image/${url}${secureTrail}`;
   return url;
 }
 
 function getTitle(item) {
-  console.log(item.value.properties.title[0][0]);
+  // console.log(item.value.properties.title[0][0]);
   return item.value.properties.title[0][0];
 }
 
