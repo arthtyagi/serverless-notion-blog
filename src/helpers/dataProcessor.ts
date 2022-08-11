@@ -30,9 +30,9 @@ export function dataProcessor(data) {
   const notion = [];
   const dataMap = new Map(Object.entries(data));
   const dataList = Array.from(dataMap.values());
-  const title = getTitle(dataList[0]);
+  const pageTitle = getTitle(dataList[0]);
   notion.push({
-    content: title,
+    content: pageTitle,
     type: 'title',
     key: 'title',
   });
@@ -50,7 +50,7 @@ export function dataProcessor(data) {
             key: item.value.id,
           });
         } else {
-          for (title of item.value.properties.title) {
+          for (const title of item.value.properties.title) {
             notion.push({
               content: title[0],
               type: 'text',

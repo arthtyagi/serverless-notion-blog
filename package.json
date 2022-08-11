@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@octokit/core": "^4.0.4",
     "@rollup/plugin-html": "^0.2.4",
     "@rollup/pluginutils": "^4.2.1",
     "@tanstack/react-query": "^4.0.10",
