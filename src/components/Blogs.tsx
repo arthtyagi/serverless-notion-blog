@@ -7,7 +7,7 @@ import { genURL } from '../helpers/dataProcessor';
 
 const NOTION_URL = import.meta.env.VITE_NOTION_URL;
 
-function getData(url) {
+function getData(url: string) {
   return axios.get(url).then((res) => res);
 }
 
