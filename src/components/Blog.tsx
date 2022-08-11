@@ -25,6 +25,7 @@ function BlogContent({ slug }) {
   }
   const { data } = blogQuery;
   if (isContentEmpty) {
+    // declare types for dataProcessor
     setContent(dataProcessor(data));
   }
   return (

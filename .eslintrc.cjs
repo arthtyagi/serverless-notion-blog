@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'airbnb-typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -14,12 +15,14 @@ module.exports = {
       jsx: true,
     },
     ecmaVersion: 'latest',
+    project: './tsconfig.json',
   },
   plugins: [
     'react',
     '@typescript-eslint',
   ],
   rules: {
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     '@typescript-eslint/no-shadow': ['error', { ignoreTypeValueShadow: true }],
     'no-shadow': 'off',
     'no-restricted-syntax': [
@@ -40,5 +43,6 @@ module.exports = {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', 'ts', 'tsx'] }],
+
   },
 };
