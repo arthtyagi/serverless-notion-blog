@@ -15,7 +15,7 @@ I'm not big on open-source anymore but this still seemed cool to make open-sourc
 - [X] Performant ⚡ . Does not re-fetch blogs unless there's a change.
 - [X] Rendering list of all blogs.
 - [X] Rendering titles.
-- [X] Rendering content (essntially, title arrays w text property).
+- [X] Rendering content (essentially, title arrays w text property).
 - [X] Rendering images (sort of. dimensions are icky).
 - [X] Rendering Lists.
 
