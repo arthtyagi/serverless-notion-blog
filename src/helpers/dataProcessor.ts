@@ -50,7 +50,7 @@ export function dataProcessor(data) {
             key: item.value.id,
           });
         } else {
-          for (const title of item.value.properties.title) {
+          for (title of item.value.properties.title) {
             notion.push({
               content: title[0],
               type: 'text',
