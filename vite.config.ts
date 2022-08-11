@@ -9,8 +9,8 @@ export default defineConfig({
       'node-fetch': 'axios',
     },
   },
-  define: {
-    // polyfill because of octokit
-    global: {},
-  },
+  // define: {
+  //   // polyfill because of octokit
+  //   global: {},
+  // },
 });
