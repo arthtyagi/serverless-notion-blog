@@ -18,8 +18,8 @@ interface NotionListItem {
 }
 
 function BlogList(): JSX.Element {
-  const [notionContent, setNotionContent] = useState<NotionListItem[]>([]);
-  const isNotionContentEmpty = notionContent.length === 0;
+  const [notionList, setNotionList] = useState<NotionListItem[]>([]);
+  const isNotionListEmpty = notionList.length === 0;
   const notionQuery = useQuery(['page', 'notion'], () => getData(`${NOTION_URL}`));
   if (notionQuery.isLoading) {
     return <h2>Loading...</h2>;
@@ -34,7 +34,7 @@ function BlogList(): JSX.Element {
   const dataList = Array.from(dataMap.values());
   // declare item type
 
-  if (isNotionContentEmpty) {
+  if (isNotionListEmpty) {
     for (const item of dataList as any) {
       try {
         // 629... is the pageId of my base page
@@ -49,11 +49,11 @@ function BlogList(): JSX.Element {
         // console.log(err);
       }
     }
-    setNotionContent(notion);
+    setNotionList(notion);
   }
   return (
     <section className="card-container">
-      {notionContent.map((item) => (
+      {notionList.map((item) => (
         <Link className="a card" key={item.key} to={`/blog/${item.key}`}>
           {item.title}
         </Link>
