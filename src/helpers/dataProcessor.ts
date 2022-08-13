@@ -51,7 +51,7 @@ export function dataProcessor(data: NotionResponse) {
       if (item.value.type === 'text') {
         if (item.value.properties.title.length > 0) {
           const text = item.value.properties.title.reduce(
-            (acc: any, cur: any[]) => acc + cur[0],
+            (acc: string, cur: string[]) => acc + cur[0],
             '',
           );
           notion.push({
