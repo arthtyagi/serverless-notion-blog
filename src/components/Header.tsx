@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 interface HeaderProps {
   curroute: string;
 }
-export default function Header({ curroute }: HeaderProps) {
+export default function Header({ curroute }: HeaderProps): JSX.Element {
   let head = 'ARTH';
   const isBlog = curroute.includes('blog');
   if (curroute.startsWith('/blog')) {
@@ -36,7 +35,3 @@ export default function Header({ curroute }: HeaderProps) {
     </>
   );
 }
-
-Header.propTypes = {
-  curroute: PropTypes.string.isRequired,
-};

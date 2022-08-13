@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
@@ -52,10 +51,6 @@ function BlogContent({ slug }: BlogContentProps): JSX.Element {
   );
 }
 
-BlogContent.propTypes = {
-  slug: PropTypes.string.isRequired,
-};
-
 export default function Blog(): JSX.Element {
   const { slug } = useParams() as { slug: string };
   return (
@@ -64,7 +59,3 @@ export default function Blog(): JSX.Element {
     </section>
   );
 }
-
-BlogContent.propTypes = {
-  slug: PropTypes.string.isRequired,
-};
