@@ -3,7 +3,7 @@ import { Outlet, Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Blog from './Blog';
-import { genURL } from '../helpers/dataProcessor';
+import { genURL, NotionResponse } from '../helpers/dataProcessor';
 
 const NOTION_URL = import.meta.env.VITE_NOTION_URL;
 
@@ -15,10 +15,6 @@ interface NotionListItem {
   title: string;
   url: string;
   key: string;
-}
-
-interface NotionResponse {
-  data: { data: {} };
 }
 
 function BlogList(): JSX.Element {

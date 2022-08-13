@@ -7,6 +7,10 @@ export interface NotionItem {
   key: string;
 }
 
+export interface NotionResponse {
+  data: { data: {} };
+}
+
 export function genURL(item: any) {
   let title = item.value.properties.title[0][0];
   // strip ;,:,/""'? from title, replace with -
@@ -32,7 +36,7 @@ function getTitle(item: any) {
   return item.value.properties.title[0][0];
 }
 
-export function dataProcessor(data: any) {
+export function dataProcessor(data: NotionResponse) {
   const notion: NotionItem[] = [];
   const dataMap = new Map(Object.entries(data));
   const dataList = Array.from(dataMap.values());
