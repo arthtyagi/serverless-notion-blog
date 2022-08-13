@@ -2,8 +2,6 @@
 
 Powering my blog at [https://arthtyagi.xyz/blog](https://arthtyagi.xyz/blog). The data is from my Notion.
 
-**TS migration underway. Feel free to open a PR, that'd be helpful. Thanks!**
-
 ## Why
 
 I have been using Notion for a while now to host my blog, however, I don't like the design of the blog. I wanted to make it more "me" (read: broken but sexy).
