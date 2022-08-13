@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function Header({ curroute }) {
+interface HeaderProps {
+  curroute: string;
+}
+export default function Header({ curroute }: HeaderProps) {
   let head = 'ARTH';
   const isBlog = curroute.includes('blog');
   if (curroute.startsWith('/blog')) {

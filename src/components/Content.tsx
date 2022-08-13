@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Content() {
+export default function Content(): JSX.Element {
   return (
     <body>
       <h2>[VENTURES]</h2>

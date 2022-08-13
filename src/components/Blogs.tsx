@@ -11,8 +11,14 @@ function getData(url: string) {
   return axios.get(url).then((res) => res);
 }
 
-function BlogList() {
-  const [notionContent, setNotionContent] = useState([]);
+interface NotionListItem {
+  title: string;
+  url: string;
+  key: string;
+}
+
+function BlogList(): JSX.Element {
+  const [notionContent, setNotionContent] = useState<NotionListItem[]>([]);
   const isNotionContentEmpty = notionContent.length === 0;
   const notionQuery = useQuery(['page', 'notion'], () => getData(`${NOTION_URL}`));
   if (notionQuery.isLoading) {
@@ -22,12 +28,14 @@ function BlogList() {
     return <h2>Error</h2>;
   }
 
-  const notion = [];
+  const notion: NotionListItem[] = [];
   const { data } = notionQuery;
   const dataMap = new Map(Object.entries(data.data));
   const dataList = Array.from(dataMap.values());
+  // declare item type
+
   if (isNotionContentEmpty) {
-    for (const item of dataList) {
+    for (const item of dataList as any) {
       try {
         // 629... is the pageId of my base page
         if (item.value.type === 'page' && item.value.id !== '629c6203-1af3-4bf3-b5dc-2335730153f4') {
@@ -43,7 +51,6 @@ function BlogList() {
     }
     setNotionContent(notion);
   }
-
   return (
     <section className="card-container">
       {notionContent.map((item) => (

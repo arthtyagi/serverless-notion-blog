@@ -1,7 +1,13 @@
 const NOTION_BASE = import.meta.env.VITE_NOTION_BASE;
 // VITE_BASE_URL should be your public Notion url
 
-export function genURL(item: unknown) {
+export interface NotionItem {
+  content: string;
+  type: string;
+  key: string;
+}
+
+export function genURL(item: any) {
   let title = item.value.properties.title[0][0];
   // strip ;,:,/""'? from title, replace with -
   title = title.replace(/[;,:,/"'?]/g, '-');
@@ -10,8 +16,8 @@ export function genURL(item: unknown) {
   slugId = slugId.replace(/-/g, '');
   return `${NOTION_BASE}${title}-${slugId}`;
 }
-
-function genImgURL(item) {
+// todo: Item interface; basically the Notion's response
+function genImgURL(item: any) {
   let url = item.value.properties.source[0][0];
   const blockId = item.value.id;
   const spaceId = item.value.space_id;
@@ -21,13 +27,13 @@ function genImgURL(item) {
   return url;
 }
 
-function getTitle(item) {
+function getTitle(item: any) {
   // console.log(item.value.properties.title[0][0]);
   return item.value.properties.title[0][0];
 }
 
-export function dataProcessor(data) {
-  const notion = [];
+export function dataProcessor(data: any) {
+  const notion: NotionItem[] = [];
   const dataMap = new Map(Object.entries(data));
   const dataList = Array.from(dataMap.values());
   const pageTitle = getTitle(dataList[0]);
@@ -36,12 +42,12 @@ export function dataProcessor(data) {
     type: 'title',
     key: 'title',
   });
-  for (const item of dataList) {
+  for (const item of dataList as any) {
     try {
       if (item.value.type === 'text') {
         if (item.value.properties.title.length > 0) {
           const text = item.value.properties.title.reduce(
-            (acc, cur) => acc + cur[0],
+            (acc: any, cur: any[]) => acc + cur[0],
             '',
           );
           notion.push({
@@ -77,6 +83,7 @@ export function dataProcessor(data) {
       notion.push({
         content: '',
         key: item.value.id,
+        type: '',
       });
     }
   }
