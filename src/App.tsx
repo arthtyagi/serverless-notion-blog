@@ -6,18 +6,13 @@ import Content from './components/Content';
 import Blogs from './components/Blogs';
 import Blog from './components/Blog';
 
-function Home() {
+function Home(): JSX.Element {
   return (
-    <>
-      <Content />
-      <br />
-      <h2>[RECENT BLOGS]</h2>
-      <Blogs />
-    </>
+    <Content />
   );
 }
 
-export default function App() {
+export default function App(): JSX.Element {
   const curroute = (useLocation().pathname);
   return (
     <div>
