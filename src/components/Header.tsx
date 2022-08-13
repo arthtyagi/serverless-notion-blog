@@ -29,7 +29,7 @@ export default function Header({ curroute }: HeaderProps) {
           <p>
             Open-sourced at
             {' '}
-            <a href="https:github.com/arthtyagi/serverless-notion-blog/" rel="noreferrer" target="_blank">github.com/arthtyagi/serverless-notion-blog/</a>
+            <a href="https://github.com/arthtyagi/serverless-notion-blog/" rel="noreferrer" target="_blank">github.com/arthtyagi/serverless-notion-blog/</a>
           </p>
         </div>
       )}

@@ -32,7 +32,6 @@ function BlogList(): JSX.Element {
   const { data } = notionQuery;
   const dataMap = new Map(Object.entries(data.data));
   const dataList = Array.from(dataMap.values());
-  // declare item type
 
   if (isNotionListEmpty) {
     for (const item of dataList as any) {
