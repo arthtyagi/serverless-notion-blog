@@ -19,18 +19,14 @@ export default function Header({ curroute }: HeaderProps): JSX.Element {
           </Link>
         </div>
       </div>
-      <br />
       {isBlog && (
-        <div>
-          <Link className="links display-links" to="/blog">All Blogs</Link>
-          <br />
-          <a href="https://blog.arthtyagi.xyz" rel="noreferrer" target="_blank">Visit blog.arthtyagi.xyz if you truly can&apos;t stand this.</a>
-          <p>
-            Open-sourced at
-            {' '}
-            <a href="https://github.com/arthtyagi/serverless-notion-blog/" rel="noreferrer" target="_blank">github.com/arthtyagi/serverless-notion-blog/</a>
-          </p>
-        </div>
+      <p>
+        <Link className="links display-links" to="/blog">All Blogs</Link>
+        <br />
+        Open-sourced on
+        {' '}
+        <a className="a" href="https://github.com/arthtyagi/serverless-notion-blog/" rel="noreferrer" target="_blank">Github</a>
+      </p>
       )}
     </>
   );

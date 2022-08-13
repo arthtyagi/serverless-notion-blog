@@ -17,7 +17,6 @@ export default function App(): JSX.Element {
   return (
     <div>
       <Header curroute={curroute} />
-      <br />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="blog" element={<Blogs />}>
