@@ -7,8 +7,7 @@ export default function Content() {
       <h2>[VENTURES]</h2>
       <section className="flex-row">
         <a className="ventures display-links" rel="noreferrer" target="_blank" href="https://connectdome.com">ConnectDome</a>
-        <a className="ventures display-links" rel="noreferrer" target="_blank" href="https://letterbolt.app">LetterBolt</a>
-        <a className="ventures display-links" rel="noreferrer" target="_blank" href="https://nomofomo.lol">NomoFOMO.lol</a>
+        <a className="ventures display-links" rel="noreferrer" target="_blank" href="https://github.com/arthtyagi/serverless-notion-blog">Serverless Notion Blog</a>
       </section>
       <br />
       <h2>[PAST VENTURES]</h2>

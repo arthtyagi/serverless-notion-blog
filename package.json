@@ -12,6 +12,7 @@
     "@rollup/plugin-html": "^0.2.4",
     "@rollup/pluginutils": "^4.2.1",
     "@tanstack/react-query": "^4.0.10",
+    "@tanstack/react-query-devtools": "^4.0.10",
     "axios": "^0.27.2",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-typescript": "^17.0.0",

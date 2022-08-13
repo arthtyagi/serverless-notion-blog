@@ -9,23 +9,28 @@ export default function Header({ curroute }) {
     head += "'S BLOG";
   }
   return (
-    <div className="header">
-      <Link className="a" to="/">
-        <h1>{head}</h1>
-      </Link>
+    <>
+      <div className="window">
+        <div className="title-bar header">
+          <Link className="title a" to="/">
+            <h1>{head}</h1>
+          </Link>
+        </div>
+      </div>
+      <br />
       {isBlog && (
-      <>
-        <Link className="links display-links" to="/blog">All Blogs</Link>
-        <p>Todo: Fix images in blogs.</p>
-        <a href="https://blog.arthtyagi.xyz" rel="noreferrer" target="_blank">Visit blog.arthtyagi.xyz if you truly can&apost stand this.</a>
-        <p>
-          Open-sourced at
-          {' '}
-          <a href="https:github.com/arthtyagi/serverless-notion-blog/" rel="noreferrer" target="_blank">github.com/arthtyagi/serverless-notion-blog/</a>
-        </p>
-      </>
+        <div>
+          <Link className="links display-links" to="/blog">All Blogs</Link>
+          <br />
+          <a href="https://blog.arthtyagi.xyz" rel="noreferrer" target="_blank">Visit blog.arthtyagi.xyz if you truly can&apos;t stand this.</a>
+          <p>
+            Open-sourced at
+            {' '}
+            <a href="https:github.com/arthtyagi/serverless-notion-blog/" rel="noreferrer" target="_blank">github.com/arthtyagi/serverless-notion-blog/</a>
+          </p>
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
