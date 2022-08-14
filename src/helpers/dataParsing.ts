@@ -36,7 +36,7 @@ function getTitle(item: any) {
   return item.value.properties.title[0][0];
 }
 
-export function dataProcessor(data: NotionResponse) {
+export function dataParser(data: NotionResponse) {
   const notion: NotionItem[] = [];
   const dataMap = new Map(Object.entries(data));
   const dataList = Array.from(dataMap.values());
@@ -51,7 +51,7 @@ export function dataProcessor(data: NotionResponse) {
       if (item.value.type === 'text') {
         if (item.value.properties.title.length > 0) {
           const text = item.value.properties.title.reduce(
-            (acc: string, cur: string[]) => acc + cur[0],
+            (acc: string, cur: string) => acc + cur[0],
             '',
           );
           notion.push({
@@ -77,11 +77,23 @@ export function dataProcessor(data: NotionResponse) {
         });
       }
       if (item.value.type === 'bulleted_list') {
-        notion.push({
-          content: item.value.properties.title[0][0],
-          type: 'bulleted-list',
-          key: item.value.id,
-        });
+        if (item.value.properties.title.length > 0) {
+          const text = item.value.properties.title.reduce(
+            (acc: string, cur: string) => acc + cur[0],
+            '',
+          );
+          notion.push({
+            content: text,
+            type: 'bulleted-list',
+            key: item.value.id,
+          });
+        } else {
+          notion.push({
+            content: item.value.properties.title[0][0],
+            type: 'bulleted-list',
+            key: item.value.id,
+          });
+        }
       }
     } catch (err) {
       notion.push({

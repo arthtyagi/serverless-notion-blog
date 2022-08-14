@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { dataProcessor, NotionItem } from '../helpers/dataProcessor';
+import { dataParser, NotionItem } from '../helpers/dataParsing';
 
 const WORKER_URL = import.meta.env.VITE_WORKER_URL;
 // VITE_WORKER_URL should be like: <workerurl>/v1/page/
@@ -28,8 +28,8 @@ function BlogContent({ slug }: BlogContentProps): JSX.Element {
   }
   const { data } = blogQuery;
   if (isContentEmpty) {
-    // declare types for dataProcessor
-    setContent(dataProcessor(data));
+    // declare types for dataParser
+    setContent(dataParser(data));
   }
   return (
     <>

@@ -3,7 +3,7 @@ import { Outlet, Link, useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Blog from './Blog';
-import { genURL, NotionResponse } from '../helpers/dataProcessor';
+import { genURL, NotionResponse } from '../helpers/dataParsing';
 
 const NOTION_URL = import.meta.env.VITE_NOTION_URL;
 
