@@ -21,7 +21,9 @@ export default function App(): JSX.Element {
         <Route path="/" element={<Home />} />
         <Route path="blog" element={<Blogs />}>
           <Route path=":slug" element={<Blog />} />
+          <Route path="*" element={<Blogs />} />
         </Route>
+        <Route path="*" element={<Home />} />
       </Routes>
     </div>
   );
