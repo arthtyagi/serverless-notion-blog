@@ -29,7 +29,7 @@ function BlogList(): JSX.Element {
   }
 
   const notion: NotionListItem[] = [];
-  const { data } = notionQuery as NotionResponse;
+  const { data } = notionQuery as { data: NotionResponse };
   const dataMap = new Map(Object.entries(data.data));
   const dataList = Array.from(dataMap.values());
 

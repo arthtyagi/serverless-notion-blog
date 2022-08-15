@@ -49,25 +49,15 @@ export function dataParser(data: NotionResponse) {
   for (const item of dataList as any) {
     try {
       if (item.value.type === 'text') {
-        if (item.value.properties.title.length > 0) {
-          const text = item.value.properties.title.reduce(
-            (acc: string, cur: string) => acc + cur[0],
-            '',
-          );
-          notion.push({
-            content: text,
-            type: 'text',
-            key: item.value.id,
-          });
-        } else {
-          for (const title of item.value.properties.title) {
-            notion.push({
-              content: title[0],
-              type: 'text',
-              key: item.value.id,
-            });
-          }
-        }
+        const text = item.value.properties.title.reduce(
+          (acc: string, cur: string) => acc + cur[0],
+          '',
+        );
+        notion.push({
+          content: text,
+          type: 'text',
+          key: item.value.id,
+        });
       }
       if (item.value.type === 'image') {
         notion.push({
