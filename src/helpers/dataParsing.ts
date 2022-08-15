@@ -47,6 +47,7 @@ export function dataParser(data: NotionResponse) {
     key: 'title',
   });
   for (const item of dataList as any) {
+    console.log(item);
     try {
       if (item.value.type === 'text') {
         const text = item.value.properties.title.reduce(
@@ -67,23 +68,26 @@ export function dataParser(data: NotionResponse) {
         });
       }
       if (item.value.type === 'bulleted_list') {
-        if (item.value.properties.title.length > 0) {
-          const text = item.value.properties.title.reduce(
-            (acc: string, cur: string) => acc + cur[0],
-            '',
-          );
-          notion.push({
-            content: text,
-            type: 'bulleted-list',
-            key: item.value.id,
-          });
-        } else {
-          notion.push({
-            content: item.value.properties.title[0][0],
-            type: 'bulleted-list',
-            key: item.value.id,
-          });
-        }
+        const list = item.value.properties.title.reduce(
+          (acc: string, cur: string) => acc + cur[0],
+          '',
+        );
+        notion.push({
+          content: list,
+          type: 'bulleted-list',
+          key: item.value.id,
+        });
+      }
+      if (item.value.type === 'quote') {
+        const quote = item.value.properties.title.reduce(
+          (acc: string, cur: string) => acc + cur[0],
+          '',
+        );
+        notion.push({
+          content: quote,
+          type: 'quote',
+          key: item.value.id,
+        });
       }
     } catch (err) {
       notion.push({

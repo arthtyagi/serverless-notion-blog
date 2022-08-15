@@ -48,6 +48,7 @@ function BlogContent({ slug }: BlogContentProps): JSX.Element {
             <h3 className="list-title">{item.content}</h3>
           )
             : null}
+          {item.type === 'quote' ? <i>{item.content}</i> : null}
           {item.type === 'text' ? <p>{item.content}</p> : null}
           {item.type === 'image' ? <img src={item.content} alt="notion" /> : null}
           {item.type === 'bulleted-list' ? <li>{item.content}</li> : null}
