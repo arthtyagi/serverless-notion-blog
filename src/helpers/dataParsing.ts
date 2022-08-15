@@ -38,6 +38,7 @@ function getTitle(item: any) {
 
 export function dataParser(data: NotionResponse) {
   const notion: NotionItem[] = [];
+  let buffer: string = '';
   const dataMap = new Map(Object.entries(data));
   const dataList = Array.from(dataMap.values());
   const pageTitle = getTitle(dataList[0]);
@@ -47,15 +48,14 @@ export function dataParser(data: NotionResponse) {
     key: 'title',
   });
   for (const item of dataList as any) {
-    console.log(item);
     try {
       if (item.value.type === 'text') {
-        const text = item.value.properties.title.reduce(
+        buffer = item.value.properties.title.reduce(
           (acc: string, cur: string) => acc + cur[0],
           '',
         );
         notion.push({
-          content: text,
+          content: buffer,
           type: 'text',
           key: item.value.id,
         });
@@ -68,23 +68,23 @@ export function dataParser(data: NotionResponse) {
         });
       }
       if (item.value.type === 'bulleted_list') {
-        const list = item.value.properties.title.reduce(
+        buffer = item.value.properties.title.reduce(
           (acc: string, cur: string) => acc + cur[0],
           '',
         );
         notion.push({
-          content: list,
+          content: buffer,
           type: 'bulleted-list',
           key: item.value.id,
         });
       }
       if (item.value.type === 'quote') {
-        const quote = item.value.properties.title.reduce(
+        buffer = item.value.properties.title.reduce(
           (acc: string, cur: string) => acc + cur[0],
           '',
         );
         notion.push({
-          content: quote,
+          content: buffer,
           type: 'quote',
           key: item.value.id,
         });
