@@ -23,10 +23,18 @@ function BlogContent({ slug }: BlogContentProps): JSX.Element {
     data, isError, isLoading, isSuccess,
   } = useQuery(['page', slug], () => getData(slug));
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return (
+      <article className="article-container">
+        <h2>Loading...</h2>
+      </article>
+    );
   }
   if (isError) {
-    return <h2>Error</h2>;
+    return (
+      <article className="article-container">
+        <h2>Error</h2>
+      </article>
+    );
   }
   if (isContentEmpty && isSuccess) {
     // declare types for dataParser
@@ -37,7 +45,7 @@ function BlogContent({ slug }: BlogContentProps): JSX.Element {
       {Content.map((item) => (
         <div>
           {item.type === 'title' ? (
-            <h2>{item.content}</h2>
+            <h3 className="list-title">{item.content}</h3>
           )
             : null}
           {item.type === 'text' ? <p>{item.content}</p> : null}
