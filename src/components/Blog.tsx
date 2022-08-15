@@ -19,27 +19,25 @@ interface BlogContentProps {
 function BlogContent({ slug }: BlogContentProps): JSX.Element {
   const [Content, setContent] = useState<NotionItem[]>([]);
   const isContentEmpty = Content.length === 0;
-  const blogQuery = useQuery(['page', slug], () => getData(slug));
-  if (blogQuery.isLoading) {
+  const {
+    data, isError, isLoading, isSuccess,
+  } = useQuery(['page', slug], () => getData(slug));
+  if (isLoading) {
     return <h2>Loading...</h2>;
   }
-  if (blogQuery.isError) {
+  if (isError) {
     return <h2>Error</h2>;
   }
-  const { data } = blogQuery;
-  if (isContentEmpty) {
+  if (isContentEmpty && isSuccess) {
     // declare types for dataParser
     setContent(dataParser(data));
   }
   return (
-    <>
+    <article className="article-container">
       {Content.map((item) => (
         <div>
           {item.type === 'title' ? (
-            <>
-              <h2>{item.content}</h2>
-              <br />
-            </>
+            <h2>{item.content}</h2>
           )
             : null}
           {item.type === 'text' ? <p>{item.content}</p> : null}
@@ -47,7 +45,7 @@ function BlogContent({ slug }: BlogContentProps): JSX.Element {
           {item.type === 'bulleted-list' ? <li>{item.content}</li> : null}
         </div>
       ))}
-    </>
+    </article>
   );
 }
 

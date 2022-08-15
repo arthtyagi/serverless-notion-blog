@@ -20,19 +20,16 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-family: 'Courier', 'Courier New', 'Lucida Typewriter', monospace;
+  font-family: Courier, 'Courier New', 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
   word-wrap: break-word;
   -webkit-font-smoothing: antialiased;
-  background-color: #ffffff;
-  background-size: 22px 22px;
-  background-position: center;
+  background-color: #fafffb;
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: thin;
   /* Firefox */
   text-align: left;
   color: #5a5a5a;
-  font-weight: light;
   letter-spacing: -0.5px;
 }
 
@@ -48,6 +45,28 @@ h1{
   justify-content: center;
   margin-top: 15px;
   margin-bottom: 5px;
+}
+
+.article-container{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.list-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.list-title{
+  letter-spacing: 2.55px;
 }
 
 /*override a link*/
@@ -71,9 +90,8 @@ body::-webkit-scrollbar {
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: #000000;
-  letter-spacing: 1px;
+  letter-spacing: 2.55px;
 }
-
 
 .card {
   display: flex;
@@ -103,19 +121,6 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration:dashed;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
-}
-
-.card-container {
-  padding: 25px 25px;
-  /*cards should be 2x2 on a line*/
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: left;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  margin-bottom: 20px;
-
 }
 
 /*Button for a link*/

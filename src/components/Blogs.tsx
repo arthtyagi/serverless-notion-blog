@@ -51,14 +51,16 @@ function BlogList(): JSX.Element {
     setNotionList(notion);
   }
   return (
-    <section className="card-container">
+    <article className="list-container">
       {notionList.map((item) => (
-        <Link className="a card" key={item.key} to={`/blog/${item.key}`}>
-          {item.title}
-        </Link>
+        <h3 className="list-title">
+          <Link className="a" key={item.key} to={`/blog/${item.key}`}>
+            {item.title}
+          </Link>
+        </h3>
       ))}
       <Outlet />
-    </section>
+    </article>
   );
 }
 
