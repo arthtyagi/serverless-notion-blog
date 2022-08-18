@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Outlet, Link, useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
-import Blog from './Blog';
+import Blog, { getData as getBlogData } from './Blog';
 import { genURL, NotionResponse } from '../helpers/dataParsing';
 
 const NOTION_URL = import.meta.env.VITE_NOTION_URL;
 
-function getData(url: string) {
+export function getData(url: string) {
   return axios.get(url).then((res) => res);
 }
 
@@ -18,9 +18,10 @@ interface NotionListItem {
 }
 
 function BlogList(): JSX.Element {
+  const queryClient = useQueryClient();
   const [notionList, setNotionList] = useState<NotionListItem[]>([]);
   const isNotionListEmpty = notionList.length === 0;
-  const notionQuery = useQuery(['page', 'notion'], () => getData(`${NOTION_URL}`));
+  const notionQuery = useQuery(['page'], () => getData(`${NOTION_URL}`));
   if (notionQuery.isLoading) {
     return <h2>Loading...</h2>;
   }
@@ -54,7 +55,12 @@ function BlogList(): JSX.Element {
     <article className="list-container">
       {notionList.map((item) => (
         <h3 className="list-title">
-          <Link className="a" key={item.key} to={`/blog/${item.key}`}>
+          <Link
+            className="a"
+            key={item.key}
+            onMouseEnter={() => { queryClient.prefetchQuery(['page', item.key], () => getBlogData(item.key)); }}
+            to={`/blog/${item.key}`}
+          >
             {item.title}
           </Link>
         </h3>

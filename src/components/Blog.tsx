@@ -7,7 +7,7 @@ import { dataParser, NotionItem } from '../helpers/dataParsing';
 const WORKER_URL = import.meta.env.VITE_WORKER_URL;
 // VITE_WORKER_URL should be like: <workerurl>/v1/page/
 
-function getData(slug: string) {
+export function getData(slug: string) {
   const url = `${WORKER_URL}${slug}`;
   return axios.get(url).then((res) => res.data);
 }

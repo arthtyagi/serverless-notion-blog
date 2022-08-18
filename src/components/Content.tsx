@@ -1,7 +1,12 @@
+import { useQueryClient } from '@tanstack/react-query';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getData as getBlogList } from './Blogs';
+
+const NOTION_URL = import.meta.env.VITE_NOTION_URL;
 
 export default function Content(): JSX.Element {
+  const queryClient = useQueryClient();
   return (
     <body>
       <p>
@@ -30,7 +35,16 @@ export default function Content(): JSX.Element {
       <br />
       <h2>[LINKS]</h2>
       <section className="flex-row">
-        <Link to="/blog" className="links display-links">Blog</Link>
+        <Link
+          to="/blog"
+          onMouseEnter={() => {
+            queryClient.prefetchQuery(['page'], () => getBlogList(`${NOTION_URL}`));
+          }}
+          className="links display-links"
+        >
+          Blog
+
+        </Link>
         <a className="display-links" href="https://github.com/arthtyagi" rel="noreferrer" target="_blank">Github</a>
         <a className="display-links" href="https://www.twitter.com/arthtyagi/" rel="noreferrer" target="_blank">Twitter</a>
         <a className="display-links" href="mailto:arth@connectdome.com" rel="noreferrer" target="_blank">Email</a>
