@@ -13,10 +13,8 @@ export interface NotionResponse {
 
 export function genURL(item: any) {
   let title = item.value.properties.title[0][0];
-  // strip ;,:,/""'? from title, replace with -
   title = title.replace(/[;,:,/"'?]/g, '-');
   let slugId = item.value.id;
-  // remove hyphens from slugId
   slugId = slugId.replace(/-/g, '');
   return `${NOTION_BASE}${title}-${slugId}`;
 }
