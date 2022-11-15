@@ -1,6 +1,6 @@
 # ☁️⚡ Serverless Notion Blog
 
-Powering my blog at [https://arthtyagi.xyz/blog](https://arthtyagi.xyz/blog). The data is from my Notion.
+Live at [https://serverless-blog.arthtyagi.xyz](serverless-blog) subdomain of my [website](https://arthtyagi.xyz). The data is from my Notion.
 
 ## Why
 
